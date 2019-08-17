@@ -603,7 +603,7 @@ resource "aws_launch_configuration" "bastions-kubernetes-caglarcavdar-com" {
 resource "aws_launch_configuration" "master-us-west-2a-masters-kubernetes-caglarcavdar-com" {
   name_prefix                 = "master-us-west-2a.masters.kubernetes.caglarcavdar.com-"
   image_id                    = "ami-0d8618ba6320df983"
-  instance_type               = "t2.micro"
+  instance_type               = "m4.large"
   key_name                    = "${aws_key_pair.kubernetes-kubernetes-caglarcavdar-com-edbbb94afeaf8d56352896fb6339b895.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-kubernetes-caglarcavdar-com.id}"
   security_groups             = ["${aws_security_group.masters-kubernetes-caglarcavdar-com.id}"]
@@ -626,7 +626,7 @@ resource "aws_launch_configuration" "master-us-west-2a-masters-kubernetes-caglar
 resource "aws_launch_configuration" "master-us-west-2b-masters-kubernetes-caglarcavdar-com" {
   name_prefix                 = "master-us-west-2b.masters.kubernetes.caglarcavdar.com-"
   image_id                    = "ami-0d8618ba6320df983"
-  instance_type               = "t2.micro"
+  instance_type               = "m4.large"
   key_name                    = "${aws_key_pair.kubernetes-kubernetes-caglarcavdar-com-edbbb94afeaf8d56352896fb6339b895.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-kubernetes-caglarcavdar-com.id}"
   security_groups             = ["${aws_security_group.masters-kubernetes-caglarcavdar-com.id}"]
@@ -649,7 +649,7 @@ resource "aws_launch_configuration" "master-us-west-2b-masters-kubernetes-caglar
 resource "aws_launch_configuration" "master-us-west-2c-masters-kubernetes-caglarcavdar-com" {
   name_prefix                 = "master-us-west-2c.masters.kubernetes.caglarcavdar.com-"
   image_id                    = "ami-0d8618ba6320df983"
-  instance_type               = "t2.micro"
+  instance_type               = "m4.large"
   key_name                    = "${aws_key_pair.kubernetes-kubernetes-caglarcavdar-com-edbbb94afeaf8d56352896fb6339b895.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-kubernetes-caglarcavdar-com.id}"
   security_groups             = ["${aws_security_group.masters-kubernetes-caglarcavdar-com.id}"]
@@ -672,7 +672,7 @@ resource "aws_launch_configuration" "master-us-west-2c-masters-kubernetes-caglar
 resource "aws_launch_configuration" "nodes-kubernetes-caglarcavdar-com" {
   name_prefix                 = "nodes.kubernetes.caglarcavdar.com-"
   image_id                    = "ami-0d8618ba6320df983"
-  instance_type               = "t2.micro"
+  instance_type               = "m4.large"
   key_name                    = "${aws_key_pair.kubernetes-kubernetes-caglarcavdar-com-edbbb94afeaf8d56352896fb6339b895.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.nodes-kubernetes-caglarcavdar-com.id}"
   security_groups             = ["${aws_security_group.nodes-kubernetes-caglarcavdar-com.id}"]
@@ -759,7 +759,7 @@ resource "aws_route53_record" "api-kubernetes-caglarcavdar-com" {
     evaluate_target_health = false
   }
 
-  zone_id = "/hostedzone/Z1CVVIZNKQGL7V"
+  zone_id = "/hostedzone/Z2T3XGGBR5FUQ3"
 }
 
 resource "aws_route53_record" "bastion-kubernetes-caglarcavdar-com" {
@@ -772,11 +772,11 @@ resource "aws_route53_record" "bastion-kubernetes-caglarcavdar-com" {
     evaluate_target_health = false
   }
 
-  zone_id = "/hostedzone/Z1CVVIZNKQGL7V"
+  zone_id = "/hostedzone/Z2T3XGGBR5FUQ3"
 }
 
-resource "aws_route53_zone_association" "Z1CVVIZNKQGL7V" {
-  zone_id = "/hostedzone/Z1CVVIZNKQGL7V"
+resource "aws_route53_zone_association" "Z2T3XGGBR5FUQ3" {
+  zone_id = "/hostedzone/Z2T3XGGBR5FUQ3"
   vpc_id  = "${aws_vpc.kubernetes-caglarcavdar-com.id}"
 }
 

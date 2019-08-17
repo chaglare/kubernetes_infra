@@ -1,3 +1,13 @@
+resource "aws_iam_instance_profile" "bastions-kubernetes-caglarcavdar-com" {
+  name = "bastions.kubernetes.caglarcavdar.com"
+  role = "${aws_iam_role.bastions-kubernetes-caglarcavdar-com.name}"
+}
+
+resource "aws_iam_instance_profile" "masters-kubernetes-caglarcavdar-com" {
+  name = "masters.kubernetes.caglarcavdar.com"
+  role = "${aws_iam_role.masters-kubernetes-caglarcavdar-com.name}"
+}
+
 resource "aws_iam_instance_profile" "nodes-kubernetes-caglarcavdar-com" {
   name = "nodes.kubernetes.caglarcavdar.com"
   role = "${aws_iam_role.nodes-kubernetes-caglarcavdar-com.name}"

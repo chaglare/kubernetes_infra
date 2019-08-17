@@ -1,23 +1,3 @@
-resource "aws_autoscaling_attachment" "bastions-kubernetes-caglarcavdar-com" {
-  elb                    = "${aws_elb.bastion-kubernetes-caglarcavdar-com.id}"
-  autoscaling_group_name = "${aws_autoscaling_group.bastions-kubernetes-caglarcavdar-com.id}"
-}
-
-resource "aws_autoscaling_attachment" "master-us-west-2a-masters-kubernetes-caglarcavdar-com" {
-  elb                    = "${aws_elb.api-kubernetes-caglarcavdar-com.id}"
-  autoscaling_group_name = "${aws_autoscaling_group.master-us-west-2a-masters-kubernetes-caglarcavdar-com.id}"
-}
-
-resource "aws_autoscaling_attachment" "master-us-west-2b-masters-kubernetes-caglarcavdar-com" {
-  elb                    = "${aws_elb.api-kubernetes-caglarcavdar-com.id}"
-  autoscaling_group_name = "${aws_autoscaling_group.master-us-west-2b-masters-kubernetes-caglarcavdar-com.id}"
-}
-
-resource "aws_autoscaling_attachment" "master-us-west-2c-masters-kubernetes-caglarcavdar-com" {
-  elb                    = "${aws_elb.api-kubernetes-caglarcavdar-com.id}"
-  autoscaling_group_name = "${aws_autoscaling_group.master-us-west-2c-masters-kubernetes-caglarcavdar-com.id}"
-}
-
 resource "aws_autoscaling_group" "bastions-kubernetes-caglarcavdar-com" {
   name                 = "bastions.kubernetes.caglarcavdar.com"
   launch_configuration = "${aws_launch_configuration.bastions-kubernetes-caglarcavdar-com.id}"
@@ -1055,6 +1035,3 @@ resource "aws_vpc_dhcp_options_association" "kubernetes-caglarcavdar-com" {
   dhcp_options_id = "${aws_vpc_dhcp_options.kubernetes-caglarcavdar-com.id}"
 }
 
-terraform = {
-  required_version = ">= 0.9.3"
-}

@@ -1,8 +1,8 @@
 resource "aws_autoscaling_group" "nodes-kubernetes-caglarcavdar-com" {
   name                 = "nodes.kubernetes.caglarcavdar.com"
   launch_configuration = "${aws_launch_configuration.nodes-kubernetes-caglarcavdar-com.id}"
-  max_size             = 2
-  min_size             = 2
+  max_size             = "${var.node_max_size}"
+  min_size             = "${var.node_min_size}"
   vpc_zone_identifier  = ["${aws_subnet.us-west-2a-kubernetes-caglarcavdar-com.id}", "${aws_subnet.us-west-2b-kubernetes-caglarcavdar-com.id}", "${aws_subnet.us-west-2c-kubernetes-caglarcavdar-com.id}"]
 
   tag = {
